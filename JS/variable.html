@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <p id="number"></p>
+    <p id="number2"></p>
+    <p id="object1"></p>
+    <p id="object2"></p>
+
+    <script>
+        var a = 10;
+        var b = 5;
+        var c = a+b;
+        var car_obj = {type:"suv", code: 234}
+        document.getElementById("number").innerText = c;
+        document.getElementById("number2").innerHTML = ++c;
+        document.getElementById("object1").innerHTML = car_obj.type;
+        document.getElementById("object2").innerHTML = car_obj.code;
+    </script>
+</body>
+</html>

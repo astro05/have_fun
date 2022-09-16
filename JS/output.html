@@ -2,14 +2,22 @@
 
 <head>
     <title>Output</title>
+    <script type="text/javascript">
+        document.write("write from js: ");
+        document.write(5 + 4);
+        window.alert("alert from js");
+
+    </script>
+
 </head>
 
 <body>
-    <p>Output is : </p>
+    <p id="number">output </p>
+
     <script type="text/javascript">
-       // document.write(5 + 4);
-       window.alert(5+4);
+        document.getElementById("number").innerHTML = "number:" + 5;
     </script>
+
 </body>
 
 </html>
