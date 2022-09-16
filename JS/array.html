@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="array1"></p>
+    <p id="array_length"></p>
+    <p id="array_toString"></p>
+    <p id="array_seperate"></p>
+    <p id="pop"></p>
+    <p id="shift"></p>
+    <p id="push"></p>
+    <p id="unshift"></p>
+    <p id="changeing"></p>
+    <p id="delete"></p>
+    <p id="splice"></p>
+    <p id="sort"></p>
+    <p id="reverse_sort"></p>
+    <p id="concat"></p>
+
+    <script>
+        var fruits = ["apple", "orange", 'banana'];
+        var flower = ['rose', 'belly']
+
+        document.getElementById("array1").innerHTML = fruits[2];
+        document.getElementById("array_length").innerHTML = fruits.length;
+        document.getElementById("array_toString").innerHTML = fruits.toString();
+        document.getElementById("array_seperate").innerHTML = fruits.join(' - ');
+        document.getElementById("array_seperate").innerHTML = fruits.join(' / ');
+        document.getElementById('pop').innerHTML = fruits.pop();
+        document.getElementById('shift').innerHTML = fruits.shift();
+        fruits.push('grape');
+        document.getElementById('push').innerHTML = fruits;
+        fruits.unshift('mango');
+        document.getElementById("unshift").innerHTML = fruits;
+        fruits[0] = 'date';
+        document.getElementById('changeing').innerHTML = fruits;
+        delete fruits[1];
+        document.getElementById('delete').innerHTML = fruits;
+        fruits.splice(1, 0, 'add1', 'add2');
+        document.getElementById('splice').innerHTML = fruits;
+        document.getElementById('sort').innerHTML = fruits.sort();
+        document.getElementById('reverse_sort').innerHTML = fruits.reverse();
+        document.getElementById("concat").innerHTML = fruits.concat(flower);
+
+
+    </script>
+
+</body>
+
+</html>

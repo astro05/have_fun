@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number</title>
+</head>
+<body>
+    <p id="random_number"></p>
+    <p id="min_number"></p>
+    <p id="max_number"></p>
+    <p id="math_round"></p>
+    <p id="math_floor"></p>
+    <p id="math_ceil"></p>
+    <script>
+        document.getElementById("random_number").innerHTML = Math.random();
+        document.getElementById("min_number").innerHTML = Math.min(123,2,-45,678,34,5);
+        document.getElementById("max_number").innerHTML = Math.max(123,2,-45,678,34,5);
+        document.getElementById("math_round").innerHTML = Math.round(15.5);
+        document.getElementById("math_floor").innerHTML = Math.floor(15.5);
+        document.getElementById("math_ceil").innerHTML = Math.ceil(15.5);
+
+
+
+</script>
+    
+</body>
+</html>

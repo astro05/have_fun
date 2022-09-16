@@ -8,16 +8,32 @@
     <p id="number2"></p>
     <p id="object1"></p>
     <p id="object2"></p>
+    <p id="object3"></p>
+    <p id="object4"></p>
+    <p id="object5"></p>
+    <p id="length"></p>
+    <p id="Sp_char"></p>    
 
     <script>
         var a = 10;
         var b = 5;
         var c = a+b;
-        var car_obj = {type:"suv", code: 234}
+        var car_obj = {type:"suv", code: 234};
+        var person_obj1 = {name: "joy", hair: 'black'};
+        var person_obj2 = {name: "abir", hair: 'yellow'};
+        var s = "My name is \"Joy\"";
+
         document.getElementById("number").innerText = c;
         document.getElementById("number2").innerHTML = ++c;
         document.getElementById("object1").innerHTML = car_obj.type;
         document.getElementById("object2").innerHTML = car_obj.code;
+        document.getElementById("object3").innerHTML = "The person name is: " + person_obj1.name + " has " + person_obj1.hair + " hair.";
+        document.getElementById("object4").innerText = person_obj1.name + "<br>" + person_obj2.name;
+        document.getElementById("object5").innerHTML = person_obj1.name + "<br>" + person_obj2.name;
+
+        document.getElementById("length").innerHTML = person_obj1.name.length;
+        document.getElementById("Sp_char").innerHTML = s;
+
     </script>
 </body>
 </html>
