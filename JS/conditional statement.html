@@ -1,14 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
 
-    
+<body>
+    <script>
+        var score = 60;
+
+        if (score < 50) {
+            document.writeln("F");
+        }
+        else if (score < 70) {
+            document.writeln('D');
+        }
+        else {
+            document.writeln("Not valid");
+        }
+    </script>
+    <p></p>
+    <script>
+        var x = 6;
+
+        document.writeln(x == 7);
+        document.writeln(x == 6);
+        document.writeln(x != 6);
+    </script>
+    <p></p>
+    <script>
+        var b1 = Boolean(5);
+        var b2 = Boolean(5.5);
+        var b3 = Boolean('joy');
+        var b4 = Boolean(-5);
+        var b5 = Boolean(0);
+
+        document.writeln('5 is ' + b1 + '<br>');
+        document.writeln('5.5 is ' + b2 + '<br>');
+        document.writeln("joy is " + b3 + "<br>");
+        document.writeln("-5 is " + b4 + "<br>");
+        document.writeln("0 is " + b5 + "<br>");
+
+    </script>
+    <p></p>
+    <script>
+        var count;
+        for (count = 0; count < 10; count++) {
+            document.writeln(count);
+
+        }
+    </script>
+    <p></p>
+    <script>
+        var txt = '';
+        var person = { Fname: 'Md', Lname: 'joy', age: '25' };
+        for (let z in person) {
+
+            txt += person[z] + " ";
+
+        }
+        document.writeln(txt);
+
+    </script>
+    <p></p>
+    <script>
+        var i = 0;
+        while (i < 20) {
+            document.writeln(i);
+            i++;
+        }
+
+    </script>
+    <p></p>
+    <script>
+        var i = 0;
+        do {
+            document.writeln(i++);
+        } while (i < 30);
+    </script>
+    <p></p>
+    <script>
+        var i = 0;
+        for (i; i < 10; i++) {
+            if (i == 5) {
+                break;
+            }
+            document.writeln(i);
+        }
+    </script>
+
 </body>
+
 </html>
