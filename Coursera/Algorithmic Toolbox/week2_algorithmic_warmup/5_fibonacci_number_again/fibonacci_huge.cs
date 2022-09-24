@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace test
 {
@@ -28,16 +28,11 @@ namespace test
 
         static void Main(string[] args)
         {
-            ulong n,m,temp;
-
-            string[] tokens = Console.ReadLine().Split(' ');
-
-            n = (ulong)Convert.ToInt64(tokens[0]);
-            m = (ulong)Convert.ToInt64(tokens[1]);
-
-            temp = n % (m * m - 1);
-            Console.WriteLine(temp + " " + m);
-            System.Console.WriteLine(fibonacci_lastdigit(temp,m));
+            ulong n,m;
+           
+            n = (ulong)Convert.ToInt64(Console.ReadLine());
+            m = (ulong)Convert.ToInt64(Console.ReadLine());
+            System.Console.WriteLine(fibonacci_lastdigit(n,m));
             
 
         }

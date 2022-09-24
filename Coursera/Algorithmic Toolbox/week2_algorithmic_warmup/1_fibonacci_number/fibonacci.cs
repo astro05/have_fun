@@ -8,7 +8,7 @@ namespace test
         public static int fibonacci_slow(int n)
         {
             if (n <= 1)
-                return 1;
+                return n;
             else
             {
                 return fibonacci_slow(n - 1) + fibonacci_slow(n - 2);
@@ -32,7 +32,7 @@ namespace test
                     fib[i] = fib[i - 1] + fib[i - 2];
                 }
 
-                long v = (long)fib[n];
+                long v = (long)fib[n-1];
                 return (ulong)v;
             
             }

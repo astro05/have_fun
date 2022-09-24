@@ -1,14 +1,14 @@
 #include <iostream>
 
-int get_fibonacci_last_digit_naive(int n) {
+long long get_fibonacci_last_digit_naive(long long n) {
     if (n <= 1)
         return n;
 
-    int previous = 0;
-    int current  = 1;
+    long long previous = 0;
+    long long current  = 1;
 
-    for (int i = 0; i < n - 1; ++i) {
-        int tmp_previous = previous;
+    for (long long i = 0; i < n - 1; ++i) {
+        long long tmp_previous = previous;
         previous = current;
         current = tmp_previous + current;
     }
@@ -17,8 +17,8 @@ int get_fibonacci_last_digit_naive(int n) {
 }
 
 int main() {
-    int n;
+    long long n;
     std::cin >> n;
-    int c = get_fibonacci_last_digit_naive(n);
+    long long c = get_fibonacci_last_digit_naive(n);
     std::cout << c << '\n';
     }
