@@ -1,11 +1,25 @@
-﻿using System;
-using System.Diagnostics;
+// https://leetcode.com/problems/find-greatest-common-divisor-of-array/
 
-namespace test
-{
-    class program
-    {
-        public static int EuclidGcd(int a, int b)
+public class Solution {
+    public int FindGCD(int[] nums) {
+        
+            if (nums.Length == 0 || nums == null)
+                return 0;
+
+            int max, min;
+            
+            // Builin function 
+            max = nums.Max();
+            min = nums.Min();
+
+            //user define function
+              // max = ArrMax(nums);
+              // min = ArrMin(nums);
+        
+        return  EuclidGcd(max, min);
+    }
+    
+    public static int EuclidGcd(int a, int b)
         {
             if (b == 0)
             {
@@ -37,20 +51,5 @@ namespace test
             }
             return min;
         }
-
-        static void Main(string[] args)
-        {
-            int max, min;
-            int[] nums = { 3};
-
-           // max = nums.Max();
-           // min = nums.Min();
-
-            max = ArrMax(nums);
-            min = ArrMin(nums);
-
-            Console.WriteLine(EuclidGcd(max, min));
-
-        }
-    }
+    
 }
