@@ -5,51 +5,42 @@ namespace test
 {
     class program
     {
-        public static int EuclidGcd(int a, int b)
+       static long Fibonacci(long num)
         {
-            if (b == 0)
+            if (num <= 1)
             {
-                return a;
+                return num;
             }
-            a = a % b;
-            return EuclidGcd(b, a);
 
-        }
+            long prev = 0;
+            long current = 1;
+            long temp = 0;
 
-        public static int ArrMax(int[] arr)
-        {
-            int max = arr[0];
-            foreach (int num in arr)
+            long rem = num % 60;
+
+            if (rem ==0)
             {
-                if (num > max)
-                    max = num;
+                return 0;
             }
-            return max;
-        }
 
-        public static int ArrMin(int[] arr)
-        {
-            int min = arr[0];
-            foreach (int num in arr)
+            for (long i = 2; i <= rem+3; i++)
             {
-                if (num < min)
-                    min = num;
+                temp = ((prev + current) % 60);
+                prev = current;
+                current = temp;
+                
             }
-            return min;
-        }
 
+            int last_digit = (int)(current - 1);
+
+            return last_digit; 
+        }
+        
         static void Main(string[] args)
         {
-            int max, min;
-            int[] nums = { 3};
-
-           // max = nums.Max();
-           // min = nums.Min();
-
-            max = ArrMax(nums);
-            min = ArrMin(nums);
-
-            Console.WriteLine(EuclidGcd(max, min));
+            long num = Convert.ToInt64( Console.ReadLine());
+            
+            Console.WriteLine(Fibonacci(num));
 
         }
     }
