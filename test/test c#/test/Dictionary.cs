@@ -3,22 +3,22 @@ using System.Diagnostics;
 
 namespace test
 {
-    class program
+    class Dictionary_test
     {
 
-        static void Main(string[] args)
-        {
-            int n = Int32.Parse(Console.ReadLine());
-            Dictionary<string, string> phonebook = new();
+        //static void Main(string[] args)
+        //{
+        //    int n = Int32.Parse(Console.ReadLine());
+        //    Dictionary<string, string> phonebook = new();
 
-            for (int i = 0; i < n; i++)
-            {
-                string[] line = Console.ReadLine().Split(' ');
-                phonebook[line[0]] = line[1];
-            }
-            Check_name(phonebook);
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        string[] line = Console.ReadLine().Split(' ');
+        //        phonebook[line[0]] = line[1];
+        //    }
+        //    Check_name(phonebook);
 
-        }
+        //}
 
         static void Check_name(Dictionary<string, string> phonebook)
         {
