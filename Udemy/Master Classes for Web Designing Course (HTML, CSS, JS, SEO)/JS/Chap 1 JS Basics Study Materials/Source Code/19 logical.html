@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+<head>
+	<title> JS Logical Operators</title>
+	<script>
+	var a = 1;
+	var b = 12;
+	var c = 22;
+	var d = 4;
+	// &&, || , !
+	document.write((a<b) && (c>d)); // t t 
+	/*
+	t t => t
+	t f => f
+	f t => f
+	f f => f
+	*/
+	document.write("<br>"); 
+
+	document.write((a>b) || (c<d)); // f f 
+	/*
+	t t => t
+	t f => t
+	f t => t
+	f f => f
+	*/
+	document.write("<br>"); 
+
+	document.write(!(a>b) || (c<d)); // f->t f 
+	document.write("<br>"); 
+
+	document.write(!(a==b)); // f->t 
+	/*
+	t => f
+	f => t
+	
+	*/
+	</script>
+	</head>
+	<body>
+	</body>
+</html>
