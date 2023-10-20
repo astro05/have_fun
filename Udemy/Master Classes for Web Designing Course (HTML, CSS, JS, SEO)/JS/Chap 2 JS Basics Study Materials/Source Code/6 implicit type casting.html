@@ -1,0 +1,48 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Implicti Type Conversion</title>
+	<script>
+	/*
+	Case 1
+	"number" + null -> "numbernull"
+	"number" + boolean -> "numberboolean"
+	"number"+ number -> "numbernumber"
+	"number" + undefined -> "numberundefined"
+	*/
+	//var res = "132" + null
+	document.write("132" + null);	
+	document.write("<br>");
+	document.write("132" + false);
+	document.write("<br>");
+	document.write("132" + 223);
+	document.write("<br>");
+	document.write("132" + undefined);
+	
+	/*
+	Case 2
+	"number" - number -> number-number
+	"number" * number -> number*number
+	"number" / number -> number/number
+	*/
+	document.write("<br>");
+	document.write("132" - 345);
+	document.write("<br>");
+	document.write("132" * 345);
+	document.write("<br>");
+	document.write("132" / 345);
+	
+	/*
+	Case 3
+	"string" - "string" -> NaN
+	"numeric string" - "string"->NaN
+	*/
+	document.write("<br>");
+	document.write("jafri" - "code");
+	document.write("<br>");
+	document.write("432534" - "code");
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

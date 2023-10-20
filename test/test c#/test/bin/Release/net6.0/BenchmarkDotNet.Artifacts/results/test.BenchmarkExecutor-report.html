@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>test.BenchmarkExecutor-20231021-010646</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.9+228a464e8be6c580ad9408e98f18813f6407fb5a, Windows 10 (10.0.19045.3208/22H2/2022Update)
+Intel Core i5-8250U CPU 1.60GHz (Kaby Lake R), 1 CPU, 8 logical and 4 physical cores
+.NET SDK 7.0.306
+  [Host]   : .NET 6.0.20 (6.0.2023.32017), X64 RyuJIT AVX2
+  ShortRun : .NET 6.0.20 (6.0.2023.32017), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>Job=ShortRun  IterationCount=3  LaunchCount=1  
+WarmupCount=3  
+</code></pre>
+
+<table>
+<thead><tr><th>Method      </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Rank</th><th>Gen0</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>BenchMarkExecutor2</td><td>9.298 ns</td><td>11.136 ns</td><td>0.6104 ns</td><td>0.94</td><td>0.11</td><td>1</td><td>0.0127</td><td>40 B</td><td>1.00</td>
+</tr><tr><td>BenchMarkExecutor</td><td>10.050 ns</td><td>33.856 ns</td><td>1.8558 ns</td><td>1.00</td><td>0.00</td><td>2</td><td>0.0127</td><td>40 B</td><td>1.00</td>
+</tr><tr><td>BenchMarkExecutor3</td><td>10.053 ns</td><td>18.289 ns</td><td>1.0025 ns</td><td>1.01</td><td>0.11</td><td>2</td><td>0.0127</td><td>40 B</td><td>1.00</td>
+</tr></tbody></table>
+</body>
+</html>
