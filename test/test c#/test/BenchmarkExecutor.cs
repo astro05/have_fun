@@ -18,21 +18,21 @@ namespace test
        public void BenchMarkExecutor()
         {
             char[] c = { 'a', 'b', 'c', 'd', 'e' };
-            program.TwoSum(c);
+           // program.TwoSum(c);
         }
         
         [Benchmark]
         public void BenchMarkExecutor2()
         {
             char[] c = { 'a', 'b', 'c', 'd', 'e' };
-            program.TwoSum(c);
+           // program.TwoSum(c);
         }
         
         [Benchmark]
         public void BenchMarkExecutor3()
         {
             char[] c = { 'a', 'b', 'c', 'd', 'e' };
-            program.TwoSum(c);
+           // program.TwoSum(c);
         }
 
 
