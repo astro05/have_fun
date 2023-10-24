@@ -13,46 +13,24 @@ namespace test
         static void Main(string[] args)
         {
             // BenchmarkRunner.Run<BenchmarkExecutor>();
-            string s = "abcd";
-            int k = 6;
-            string r = ReverseStr2(s, k);
+            uint n = 5;
+            reverseBits(n);
          }
 
-        public static string ReverseStr2(string s, int k)
+
+
+        public static uint reverseBits(uint n)
         {
-            char[] chars = s.ToCharArray();
-
-            for (int i = 0; i < chars.Length; i +=2*k )
+            uint reverse = 0; 
+            for (int i=0; i< 32; i++)
             {
-                int min = Math.Min(chars.Length -i, k);
-                Array.Reverse(chars, i, min);
+                uint r = n & 1;
+                reverse = reverse << 1;
+                reverse = reverse | r;
+                n = n >> 1;
             }
 
-            return new string(chars);
-        }
-
-
-        public static string ReverseStr1(string s, int k)
-        {
-            char[] chars = s.ToCharArray();
-            int j = 0, i =0;
-
-            while (j + k <= chars.Length)
-            {
-                for (i = j; i < j+(k/2) ; i++)
-                {
-                    (chars[i], chars[j+k-(i-j)-1]) = (chars[j+k-(i-j)-1], chars[i]);
-                }
-                j = j + 2*k;
-            }
-            if (j < chars.Length)
-            {
-                for (i = j; i < j+ (chars.Length-j)/2; i++)
-                {
-                    (chars[i], chars[chars.Length - (i-j)-1]) = (chars[chars.Length - (i - j) - 1], chars[i]);
-                }
-            }
-            return new string(chars);
+            return reverse;
         }
 
     }
