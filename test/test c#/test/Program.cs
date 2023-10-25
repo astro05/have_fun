@@ -13,25 +13,28 @@ namespace test
         static void Main(string[] args)
         {
             // BenchmarkRunner.Run<BenchmarkExecutor>();
-            uint n = 5;
-            reverseBits(n);
+            List<int> list = new List<int>() { -1, 1, 2, 3, 1 };
+            int target = 2;
+           int r = CountPairs(list, target);
          }
 
 
 
-        public static uint reverseBits(uint n)
+        public static int CountPairs(IList<int> nums, int target)
         {
-            uint reverse = 0; 
-            for (int i=0; i< 32; i++)
-            {
-                uint r = n & 1;
-                reverse = reverse << 1;
-                reverse = reverse | r;
-                n = n >> 1;
-            }
-
-            return reverse;
+          return Enumerable.Range(0, nums.Count).Select(i => nums.Skip(i+1).Count(x => nums[i] + x < target)).Sum();
         }
+
+
+        public int CountPairs(IList<int> nums, int target)
+        {
+            return Enumerable.Range(0, nums.Count)  // Step 1: Create a range of indices from 0 to nums.Count.
+                .Select(i => nums
+                                .Skip(i + 1)          // Step 2: Skip the elements before the current index.
+                                .Count(x => nums[i] + x < target))  // Step 3: Count the elements that form pairs where the sum is less than the target.
+                .Sum();  // Step 4: Sum the counts to get the total number of pairs.
+        }
+
 
     }
 }
