@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Need to call this to execute benchmark
+ *   // BenchmarkRunner.Run<BenchmarkExecutor>();
+ */
 namespace test
 {
     [ShortRunJob]
