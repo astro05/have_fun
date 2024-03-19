@@ -13,7 +13,8 @@ builder.Services.AddSingleton<IStudentStoreDatabaseSettings>(sp => sp.GetRequire
 
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("StudentStoreDatabaseSettings:ConnectionString")));
 
-builder.Services.AddScoped<IStudentService, StudentService>();   
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IMongoLogService, MongoLogService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
