@@ -1,0 +1,48 @@
+<form>
+  <div class="container">
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <h4>Database:</h4>
+        <mat-form-field>
+          <mat-label>Select Database</mat-label>
+          <mat-select [(ngModel)]="databaseName" (selectionChange)="loadCollectionInfo()" name="database">
+            <mat-option *ngFor="let db of databases;" [value]="db">{{db}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="example-flex-container">
+        <h4>Collection:</h4>
+        <mat-form-field>
+          <mat-label>Select Collection</mat-label>
+          <mat-select [(ngModel)]="collectionName" name="collection">
+            <mat-option *ngFor="let collection of collections;" [value]="collection">{{collection}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="example-flex-container">
+        <h4>UniqueTransID:</h4>
+        <mat-form-field class="example-full-width">
+          <mat-label>UniqueTransID</mat-label>
+          <input matInput placeholder="UniqueTransID" [(ngModel)]="uniqueTransID" name="uniqueTransID">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="example-button-row">
+      <div class="example-full-width">
+        <h4>Upload Document: </h4>
+        <input  type="file" id="fileInput" (change)="onFileSelected($event)">
+        <button *ngIf="this.selectedFile" class="m-1" mat-raised-button color="accent" (click)="uploadFile()">Upload</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="m-1" mat-raised-button color="primary" (click)="loadDocumentByUniTranId()">Load Document</button>
+  
+  <div *ngIf="document" class="mt-5">
+    <button class="m-1" mat-raised-button color="accent" (click)="downloadJson()">Download JSON</button>
+    <button class="m-1" mat-raised-button color="warn" (click)="deleteDocumentByUniTranId()">Delete Document</button>
+    <br>
+    <ngx-json-viewer [json]="document"></ngx-json-viewer>
+  </div>
+    
+  </form>
