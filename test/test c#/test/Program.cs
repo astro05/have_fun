@@ -1,67 +1,34 @@
-﻿using System;
-namespace OCPDemo
+﻿namespace test
 {
-    //Create an interface for the discount strategy
-    public interface IDiscountStrategy
-    {
-        double CalculateDiscount(double price);
-    }
-
-    //Implement this interface for each discount type
-    public class RegularDiscount : IDiscountStrategy
-    {
-        public double CalculateDiscount(double price)
-        {
-            return price * 0.1;
-        }
-    }
-
-    public class PremiumDiscount : IDiscountStrategy
-    {
-        public double CalculateDiscount(double price)
-        {
-            return price * 0.3;
-        }
-    }
-
-    public class NewbieDiscount : IDiscountStrategy
-    {
-        public double CalculateDiscount(double price)
-        {
-            return price * 0.05;
-        }
-    }
-
-    //Modify the DiscountCalculator class to accept an IDiscountStrategy
-    public class DiscountCalculator
-    {
-        private readonly IDiscountStrategy _discountStrategy;
-
-        public DiscountCalculator(IDiscountStrategy discountStrategy)
-        {
-            _discountStrategy = discountStrategy;
-        }
-
-        public double CalculateDiscount(double price)
-        {
-            return _discountStrategy.CalculateDiscount(price);
-        }
-    }
-
-    //Testing the Open-Closed Principle
     public class Program
     {
+        static int count = 0;
+        public static void CountMethod()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                int data = count++;
+                Thread.Sleep(2000);
+            }
+        }
+
         public static void Main()
         {
-            var regularDiscount = new RegularDiscount();
-            var calculator = new DiscountCalculator(regularDiscount);
-            double discountedPrice = calculator.CalculateDiscount(100); // 10% discount applied
+            Thread thread1 = new Thread(CountMethod)
+            {
+                Name = "Thread 1"
+            };
 
-            var premiumDiscount = new PremiumDiscount();
-            calculator = new DiscountCalculator(premiumDiscount);
-            discountedPrice = calculator.CalculateDiscount(100); // 30% discount applied
+            Thread thread2 = new Thread(CountMethod)
+            {
+                Name = "Thread 2"
+            };
+
+            thread1.Start();
+            thread2.Start();
 
             Console.ReadKey();
         }
+
     }
 }

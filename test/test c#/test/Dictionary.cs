@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace test
+﻿namespace test
 {
     class Dictionary_test
     {
