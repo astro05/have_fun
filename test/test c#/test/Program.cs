@@ -1,34 +1,47 @@
-﻿namespace test
+﻿using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsWPF;
+using System;
+using test.DesignPattern;
+
+namespace Preprocessor
 {
-    public class Program
+
+    class Program
     {
-        static int count = 0;
-        public static void CountMethod()
+
+        static  void Main(string[] args)
         {
-            for (int i = 0; i < 10; i++)
+            SingletonLazy2 s1 = null, s2 = null;
+
+            Thread t1 = new Thread(() =>
             {
-                int data = count++;
-                Thread.Sleep(2000);
+                s1 = SingletonLazy2.Instance;
+            });
+
+            Thread t2 = new Thread(() =>
+            {
+                s2 = SingletonLazy2.Instance;
+            });
+
+            t1.Start();
+            t2.Start();
+
+            t1.Join();
+            t2.Join();
+
+            if (s1 == s2)
+            {
+                Console.WriteLine("Thread Safe");
             }
-        }
-
-        public static void Main()
-        {
-            Thread thread1 = new Thread(CountMethod)
+           
+            else
             {
-                Name = "Thread 1"
-            };
-
-            Thread thread2 = new Thread(CountMethod)
-            {
-                Name = "Thread 2"
-            };
-
-            thread1.Start();
-            thread2.Start();
+                Console.WriteLine("Not thread safe");
+                
+            }
 
             Console.ReadKey();
         }
 
     }
+
 }
