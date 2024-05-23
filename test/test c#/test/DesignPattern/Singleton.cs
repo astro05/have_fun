@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace test.DesignPattern
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class NiveSingleton 
     {
         private static NiveSingleton _instance;
@@ -40,6 +43,101 @@ namespace test.DesignPattern
     }
     */
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed class NiveSingleton2
+    {
+        private static int count = 0;
+        private static NiveSingleton2 instance = null;
+        private NiveSingleton2() 
+        {
+            count++;
+            Console.WriteLine("Instance count: " + count);
+        }
+
+        public static NiveSingleton2 GetInstance()
+        {
+            if( instance == null )
+            {
+                instance = new NiveSingleton2();
+            }
+            return instance;
+        }
+
+        public void print(string message)
+        {
+            Console.WriteLine("Instance:" + count + " Message: " + message);
+        }
+    }
+    /*
+      static  void Main(string[] args)
+        {
+           NiveSingleton2 s1 = NiveSingleton2.GetInstance();
+           NiveSingleton2 s2 = NiveSingleton2.GetInstance();
+
+            s1.print("first");
+            s2.print("second");
+
+            Console.ReadKey();
+        }
+     */
+
+    /// <summary>
+    /// Single Lock
+    /// </summary>
+    public sealed class SingleLockSingleton 
+    {
+        private static int count = 0;
+        private static readonly object _lock = new object();
+        private static SingleLockSingleton instance = null;
+        private SingleLockSingleton() 
+        { 
+            count++;
+            Console.WriteLine("Instance count: " + count);
+        }
+
+        public static SingleLockSingleton GetInstance()
+        {
+            lock(_lock)
+            {
+                if(instance == null)
+                {
+                    instance = new SingleLockSingleton();
+                }
+            }
+            return instance;
+        }
+
+        public void print(string message)
+        {
+            Console.WriteLine("Instance:" + count + " Message: " + message);
+        }
+    }
+    /*
+        static  void Main(string[] args)
+        {
+            Parallel.Invoke(
+                () =>
+                {
+                    SingleLockSingleton s1 = SingleLockSingleton.GetInstance();
+                    s1.print("first");
+                },
+                () =>
+                {
+                    SingleLockSingleton s2 = SingleLockSingleton.GetInstance();
+                    s2.print("second");
+                }
+                );
+
+            Console.ReadKey();
+        }
+     */
+
+
+    /// <summary>
+    /// Double lock
+    /// </summary>
     public sealed class ThreadSafeSingleton
     {
         private static ThreadSafeSingleton _instance = null;
@@ -64,7 +162,6 @@ namespace test.DesignPattern
             return _instance;
         }
     }
-
     /* ThreadSafeSingleton
       static  void Main(string[] args)
         {
@@ -260,4 +357,48 @@ namespace test.DesignPattern
             Console.ReadKey();
         }
      */
+
+    /// <summary>
+    /// Non-Lazy or Eager Loading
+    /// </summary>
+    public sealed class EagerLoadingSingleton 
+    {
+        private static int count = 0;
+        private static readonly EagerLoadingSingleton instance = new EagerLoadingSingleton();
+        private EagerLoadingSingleton()
+        {
+            count++;
+            Console.WriteLine("Instance: " + count);
+        }
+
+        public static EagerLoadingSingleton GetInstance()
+        {
+            return instance;
+        }
+
+        public void print(string message)
+        {
+            Console.WriteLine("Instance: "+ count + " message: "+ message);
+        }
+    }
+    /*
+     static  void Main(string[] args)
+        {
+            Parallel.Invoke(
+                () =>
+                {
+                    EagerLoadingSingleton s1 = EagerLoadingSingleton.GetInstance();
+                    s1.print("first");
+                },
+                () =>
+                {
+                    EagerLoadingSingleton s2 = EagerLoadingSingleton.GetInstance();
+                    s2.print("second");
+                }
+                );
+
+            Console.ReadKey();
+        }
+     */
+
 }
